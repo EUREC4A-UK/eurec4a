@@ -26,14 +26,14 @@ def main():
 
     N = 30
 
-    for n in range(N):
+    for n in range(N)[::-1]:
         m = N-n
         url = BASE_URL.format(
             lat=lat, lon=lon, zoom=zoom, width=width, height=height,
             past=n, band=band
         )
 
-        fn = "img_{:0d}.png".format(m)
+        fn = "img_{:02d}_{:02d}.png".format(band, m)
 
         r = requests.get(url)
         soup = BeautifulSoup(r.text, 'lxml')

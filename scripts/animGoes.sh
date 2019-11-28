@@ -23,6 +23,8 @@ DATE=$1
 SOURCE=$2
 DESTINATION=$3
 
+mkdir -p "$DESTINATION"
+
 #use ffmpeg to create the animation
 #options are
 # -y                           force overwrite of file if it exists

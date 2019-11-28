@@ -30,9 +30,9 @@ DESTINATION=$3
 # -pattern_type glob           indicates the input file is actually a wildcarded glob
 # -i "$SOURCE/$DATE*.jpg"      specify input files - note quotes are required to stop the shell expanding the wildcard
 # -c:v mjpeg                   specify the video codec as mjpeg. Note libx264 seems to work well too
-# -pix_fmt rgb24               8 bit per chanel rgb pixels
+# -pix_fmt    yuvj444p         This is the pix format autoselcted by ffmpeg for mjpeg, no idea if it's the best
 # $DESTINATION/$DATE.mp4       The last parameter with no dash is the output file
 # note - could set -filter:v fps=25 to make this a 25fps video. It wouldn't reduce the duration it would just duplicate frames
-ffmpeg -y -r 5 -pattern_type glob -i "$SOURCE/$DATE*.jpg" -c:v mjpeg -pix_fmt rgb24 $DESTINATION/$DATE.mp4
+ffmpeg -y -r 5 -pattern_type glob -i "$SOURCE/$DATE*.jpg" -c:v mjpeg -pix_fmt yuvj444p $DESTINATION/$DATE.mp4
 
 

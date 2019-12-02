@@ -1,0 +1,4 @@
+*/5 * * * * $HOME/usr/src/eurec4a/scripts/allGoes.sh /nfs/ncas/earpros/eurec4a/GOES >/dev/null 2>&1
+#note, \%Y\%j rather than %Y%j below - this stops shell expansion of the %
+0 1-23 * * * $HOME/usr/src/eurec4a/scripts/animGoes.sh `date +\%Y\%j` /nfs/ncas/earpros/eurec4a/GOES/GEOCOLOR/crop /nfs/ncas/earpros/eurec4a/GOES/GEOCOLOR/crop/animation >/dev/null 2>&1
+0 0 * * * $HOME/usr/src/eurec4a/scripts/animGoes.sh `date +\%Y\%j --date "-1 day"` /nfs/ncas/earpros/eurec4a/GOES/GEOCOLOR/crop /nfs/ncas/earpros/eurec4a/GOES/GEOCOLOR/crop/animation >/dev/null 2>&1
